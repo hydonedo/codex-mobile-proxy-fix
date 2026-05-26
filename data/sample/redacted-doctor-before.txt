@@ -1,0 +1,9 @@
+Codex Doctor redacted excerpt without proxy environment variables:
+
+Connectivity
+  network      no proxy env vars
+  websocket    Responses WebSocket timed out
+    handshake timed out
+
+Background Server
+  app-server   running
