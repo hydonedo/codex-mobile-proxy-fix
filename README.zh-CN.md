@@ -1,4 +1,4 @@
-# Codex WebSocket 和手机远程连接代理修复
+# 解决 Codex Reconnection 问题
 
 这个仓库记录一个实际修复路径：Codex 在 thinking 前反复出现 `Reconnecting... request timed out`，或 Mac 上的 Codex 已经扫码绑定 ChatGPT 手机端但手机里一直显示主机离线。根因通常不是显示名称，而是 Codex 进程或本机 `app-server` daemon 没有走到稳定的 websocket 代理路径。
 

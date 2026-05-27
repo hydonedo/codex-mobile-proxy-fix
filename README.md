@@ -1,4 +1,4 @@
-# Codex WebSocket and Mobile Remote Control Proxy Fix
+# Fix Codex Reconnection Issues / 解决 Codex Reconnection 问题
 
 Fix for Codex reconnect loops such as `Reconnecting... request timed out` before thinking, and for a Mac Codex host that stays **Offline** in ChatGPT mobile after QR setup when the local daemon can reach HTTPS but cannot complete the ChatGPT websocket handshake through the right proxy path.
 
