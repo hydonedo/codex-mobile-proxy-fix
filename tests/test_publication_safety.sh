@@ -6,6 +6,7 @@ cd "$ROOT"
 
 bash -n scripts/codex-remote-proxy-check.sh
 bash -n scripts/codex-remote-proxy-restart.sh
+bash -n scripts/codex-proxy-env-launchctl.sh
 
 public_files=(
   README.md
@@ -17,6 +18,7 @@ public_files=(
   data/sample/redacted-doctor-after.txt
   scripts/codex-remote-proxy-check.sh
   scripts/codex-remote-proxy-restart.sh
+  scripts/codex-proxy-env-launchctl.sh
 )
 
 private_patterns=(
@@ -29,6 +31,7 @@ private_patterns=(
   'state_5\.sqlite'
   'auth\.json'
   'app-server-control\.sock'
+  'com\.yi\.'
 )
 
 for pattern in "${private_patterns[@]}"; do
@@ -40,6 +43,11 @@ done
 
 grep -q -- '--apply' scripts/codex-remote-proxy-restart.sh
 grep -q 'dry-run: no changes were made' scripts/codex-remote-proxy-restart.sh
+grep -q 'PROXY_MODE' scripts/codex-remote-proxy-check.sh
+grep -q 'socks-only' scripts/codex-remote-proxy-restart.sh
+grep -q 'dry-run: no changes were made' scripts/codex-proxy-env-launchctl.sh
+grep -q 'launchctl unsetenv' scripts/codex-proxy-env-launchctl.sh
+grep -q 'com.local.codex.proxy-env' scripts/codex-proxy-env-launchctl.sh
 grep -q 'HTTP 101 Switching Protocols' README.md
 grep -q 'Codex remote connections' README.md
 
